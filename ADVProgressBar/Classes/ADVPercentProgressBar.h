@@ -104,6 +104,7 @@ typedef enum
 	ADVProgressBarPurple2,
 	ADVProgressBarPurple3,
 	ADVProgressBarPurple4,
+	ADVProgressBarColorEnd
 } ADVProgressBarColor;
 
 // Properties

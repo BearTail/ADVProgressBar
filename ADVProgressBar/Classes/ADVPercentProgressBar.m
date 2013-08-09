@@ -202,10 +202,10 @@
 
 - (void)ADVProgressBarDraw:(CGRect)frame withProgressBarColor:(ADVProgressBarColor)barColor
 {
-    if ( (frame.size.width - LEFT_PADDING - RIGHT_PADDING) < PERCENT_VIEW_WIDTH ) {
-        NSLog(@"ADVProgressBarDraw: Frame width is too small to draw PercentView");
-        return;
-    }
+//    if ( (frame.size.width - LEFT_PADDING - RIGHT_PADDING) < PERCENT_VIEW_WIDTH ) {
+//        NSLog(@"ADVProgressBarDraw: Frame width is too small to draw PercentView");
+//        return;
+//    }
     
     self.progressBarColor = barColor;
     

@@ -53,7 +53,7 @@
 {
     
     ADVPercentProgressBar *blueprogressBar =
-    [[ADVPercentProgressBar alloc] initWithFrame:CGRectMake(10, 30, 292, 56)
+    [[ADVPercentProgressBar alloc] initWithFrame:CGRectMake(10, 30, 160, 56)
                              andProgressBarColor:ADVProgressBarRed];
     
     [blueprogressBar setShowPercent:NO];

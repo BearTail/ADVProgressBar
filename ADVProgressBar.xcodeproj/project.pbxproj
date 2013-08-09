@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		47D4DF7017B4CA06008CE1BE /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47D4DF6F17B4CA06008CE1BE /* QuartzCore.framework */; };
-		47D4DF7517B4DBB0008CE1BE /* ADVProgressBar.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 47D4DF7417B4DBB0008CE1BE /* ADVProgressBar.podspec */; };
+		47D4DF7717B4DE66008CE1BE /* ADVProgressBar.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 47D4DF7617B4DE66008CE1BE /* ADVProgressBar.podspec */; };
 		924FC2C816D4930100D3F305 /* storyboard3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 924FC2C616D4930100D3F305 /* storyboard3.jpg */; };
 		924FC2C916D4930100D3F305 /* storyboard4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 924FC2C716D4930100D3F305 /* storyboard4.jpg */; };
 		92972F3216D0ACD8009F08AA /* storyboard0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 92972F2F16D0ACD8009F08AA /* storyboard0.jpg */; };
@@ -33,7 +33,7 @@
 
 /* Begin PBXFileReference section */
 		47D4DF6F17B4CA06008CE1BE /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		47D4DF7417B4DBB0008CE1BE /* ADVProgressBar.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = ADVProgressBar.podspec; path = ADVProgressBar/Classes/ADVProgressBar.podspec; sourceTree = "<group>"; };
+		47D4DF7617B4DE66008CE1BE /* ADVProgressBar.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ADVProgressBar.podspec; sourceTree = "<group>"; };
 		924FC2C616D4930100D3F305 /* storyboard3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = storyboard3.jpg; sourceTree = "<group>"; };
 		924FC2C716D4930100D3F305 /* storyboard4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = storyboard4.jpg; sourceTree = "<group>"; };
 		92972F2F16D0ACD8009F08AA /* storyboard0.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = storyboard0.jpg; sourceTree = "<group>"; };
@@ -169,7 +169,7 @@
 		ECE9A4B5150A48240076F0C5 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				47D4DF7417B4DBB0008CE1BE /* ADVProgressBar.podspec */,
+				47D4DF7617B4DE66008CE1BE /* ADVProgressBar.podspec */,
 				ECE9A4B6150A48350076F0C5 /* ADVPercentProgressBar.h */,
 				ECE9A4B7150A48350076F0C5 /* ADVPercentProgressBar.m */,
 			);
@@ -239,7 +239,7 @@
 				92EE065B16D33F9100D3A01D /* editorMenu.jpg in Resources */,
 				924FC2C816D4930100D3F305 /* storyboard3.jpg in Resources */,
 				924FC2C916D4930100D3F305 /* storyboard4.jpg in Resources */,
-				47D4DF7517B4DBB0008CE1BE /* ADVProgressBar.podspec in Resources */,
+				47D4DF7717B4DE66008CE1BE /* ADVProgressBar.podspec in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

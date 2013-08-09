@@ -34,6 +34,10 @@
 
 #import "ADVPercentProgressBar.h"
 
+#import <QuartzCore/QuartzCore.h>
+
+
+
 
 #define PERCENT_VIEW_WIDTH      32.0f
 #define PERCENT_VIEW_MIN_HEIGHT 14.0f
@@ -77,7 +81,7 @@
     if (self) {
         customViewFromNIB = YES;
         [self ADVProgressBarDraw:self.frame
-            withProgressBarColor:ADVProgressBarBlue];
+            withProgressBarColor:ADVProgressBarBlue1];
     }
     
     return self;
@@ -115,8 +119,85 @@
 
 - (void)setProgressBarColor:(ADVProgressBarColor)theColor
 {
-    NSString* progressFillStr = [self getImageNameFromBarDefinition:theColor];
-    progressFillImage = [UIImage imageNamed:progressFillStr];
+    UIView *view = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
+	
+	UIColor *barColor;
+	
+	
+	switch (theColor) {
+		case ADVProgressBarRed:
+			barColor = [self colorWithHex:@"E95151" alpha:1.0];
+			break;
+			
+		case ADVProgressBarOrange1:
+			barColor = [self colorWithHex:@"E27A50" alpha:1.0f];
+			break;
+			
+		case ADVProgressBarOrange2:
+			barColor = [self colorWithHex:@"E59A52" alpha:1.0f];
+			break;
+			
+		case ADVProgressBarYellow1:
+			barColor = [self colorWithHex:@"E5C053" alpha:1.0f];
+			break;
+			
+		case ADVProgressBarYellow2:
+			barColor = [self colorWithHex:@"E4DF56" alpha:1.0f];
+			break;
+			
+		case ADVProgressBarGreen1:
+			barColor = [self colorWithHex:@"AACF59" alpha:1.0f];
+			break;
+			
+		case ADVProgressBarGreen2:
+			barColor = [self colorWithHex:@"75BC52" alpha:1.0f];
+			break;
+			
+		case ADVProgressBarBlue1:
+			barColor = [self colorWithHex:@"72C3B0" alpha:1.0f];
+			break;
+			
+		case ADVProgressBarBlue2:
+			barColor = [self colorWithHex:@"6AC4D4" alpha:1.0f];
+			break;
+			
+		case ADVProgressBarBlue3:
+			barColor = [self colorWithHex:@"E59A52" alpha:1.0f];
+			break;
+			
+		case ADVProgressBarBlue4:
+			barColor = [self colorWithHex:@"67A2C9" alpha:1.0f];
+			break;
+			
+		case ADVProgressBarBlue5:
+			barColor = [self colorWithHex:@"6373B6" alpha:1.0f];
+			break;
+			
+		case ADVProgressBarPurple1:
+			barColor = [self colorWithHex:@"6F66AB" alpha:1.0f];
+			break;
+			
+		case ADVProgressBarPurple2:
+			barColor = [self colorWithHex:@"9068A9" alpha:1.0f];
+			break;
+			
+		case ADVProgressBarPurple3:
+			barColor = [self colorWithHex:@"C366A3" alpha:1.0f];
+			break;
+			
+		case ADVProgressBarPurple4:
+			barColor = [self colorWithHex:@"C96670" alpha:1.0f];
+			break;
+			
+		default:
+			barColor = [self colorWithHex:@"E95151" alpha:1.0];
+			break;
+	}
+
+	
+	view.backgroundColor = barColor;
+	
+	progressFillImage = [self imageFromView:view];
 }
 
 - (void)ADVProgressBarDraw:(CGRect)frame withProgressBarColor:(ADVProgressBarColor)barColor
@@ -138,7 +219,7 @@
     
     [bgImageView setImage:[UIImage imageNamed:@"progress-track.png"]];
     
-    [self addSubview:bgImageView];
+    //[self addSubview:bgImageView];
     
     progressImageView = [[UIImageView alloc] initWithFrame:
                          CGRectMake(
@@ -199,7 +280,7 @@
                                                 percentViewHeight )
                                      ];
     
-    [percentImageView setImage:[UIImage imageNamed:@"progress-count.png"]];
+    //[percentImageView setImage:[UIImage imageNamed:@"progress-count.png"]];
     
     UILabel* percentLabel = [[UILabel alloc] initWithFrame:
                              CGRectMake(
@@ -220,7 +301,7 @@
     [percentView addSubview:percentLabel];
     
     [self addSubview:percentView];
-    
+
     self.showPercent = YES;
     self.minProgressValue = 0.0f;
     self.maxProgressValue = 1.0f;
@@ -275,31 +356,12 @@
         // show integral
         [percentLabel setText:[NSString  stringWithFormat:@"%d", (int)progress]];
     }
-}
-
--(NSString*)getImageNameFromBarDefinition:(ADVProgressBarColor)barDef
-{
-    NSString* imageName;
-    
-    switch (barDef) {
-        case ADVProgressBarBlue:
-            imageName = @"progress-fill-blue.png";
-            break;
-        case ADVProgressBarRed:
-            imageName = @"progress-fill-red.png";
-            break;
-        case ADVProgressBarBrown:
-            imageName = @"progress-fill-brown.png";
-            break;
-        case ADVProgressBarGreen:
-            imageName = @"progress-fill-green.png";
-            break;
-        default:
-            imageName = @"progress-fill-green.png";
-            break;
-    }
-    
-    return imageName;
+	
+	if (leftEdge < LEFT_PADDING) {
+		percentLabel.textColor = [UIColor colorWithWhite:0.3f alpha:1.0];
+	} else {
+		percentLabel.textColor = [UIColor whiteColor];
+	}
 }
 
 // Thanks to Cyrille
@@ -328,6 +390,75 @@
             return CGSizeMake(s, s);
     }
 }
+
+
+- (UIImage *)imageFromView:(UIView *)view
+{
+	// 必要なUIImageサイズ分のコンテキスト確保
+	UIGraphicsBeginImageContextWithOptions(view.frame.size, YES, 0);
+	CGContextRef context = UIGraphicsGetCurrentContext();
+
+	// 画像化する部分の位置を調整
+	CGContextTranslateCTM(context, -view.frame.origin.x, -view.frame.origin.y);
+
+	// 画像出力
+	[view.layer renderInContext:context];
+
+	// uiimage化
+	UIImage *renderedImage = UIGraphicsGetImageFromCurrentImageContext();
+
+	// コンテキスト破棄
+	UIGraphicsEndImageContext();
+
+	return renderedImage;
+}
+
+- (UIColor *)colorWithHex:(NSString *)colorCode alpha:(CGFloat)alpha
+{
+    if ([[colorCode substringWithRange:NSMakeRange(0, 1)] isEqualToString:@"#"]) {
+        colorCode = [colorCode substringWithRange:NSMakeRange(1, colorCode.length - 1)];
+    }
+	
+    if ([colorCode length] == 3) {
+        NSMutableString *_colorCode = [[NSMutableString alloc] init];
+		
+        for (NSInteger i = 0; i < colorCode.length; i++) {
+            [_colorCode appendString:[colorCode substringWithRange:NSMakeRange(i, 1)]];
+            [_colorCode appendString:[colorCode substringWithRange:NSMakeRange(i, 1)]];
+        }
+		
+        colorCode = [_colorCode copy];
+    }
+	
+    NSString *hexCodeStr;
+    const char *hexCode;
+    char *endptr;
+    CGFloat red, green, blue;
+	
+    for (NSInteger i = 0; i < 3; i++) {
+        hexCodeStr = [NSString stringWithFormat:@"+0x%@", [colorCode substringWithRange:NSMakeRange(i * 2, 2)]];
+        hexCode    = [hexCodeStr cStringUsingEncoding:NSASCIIStringEncoding];
+		
+        switch (i) {
+            case 0:
+                red   = strtol(hexCode, &endptr, 16);
+                break;
+				
+            case 1:
+                green = strtol(hexCode, &endptr, 16);
+                break;
+				
+            case 2:
+                blue  = strtol(hexCode, &endptr, 16);
+				
+            default:
+                break;
+        }
+    }
+	
+    return [UIColor colorWithRed:red / 255.0 green:green / 255.0 blue:blue / 255.0 alpha:alpha];
+}
+
 
 
 @end

@@ -54,7 +54,7 @@
     
     ADVPercentProgressBar *blueprogressBar =
     [[ADVPercentProgressBar alloc] initWithFrame:CGRectMake(10, 30, 292, 56)
-                             andProgressBarColor:ADVProgressBarBlue];
+                             andProgressBarColor:ADVProgressBarRed];
     
     [blueprogressBar setShowPercent:NO];
     [blueprogressBar setMinProgressValue:0];
@@ -69,7 +69,7 @@
     
     ADVPercentProgressBar *greenprogressBar =
     [[ADVPercentProgressBar alloc] initWithFrame:CGRectMake(10, 90, 292, 28)
-                             andProgressBarColor:ADVProgressBarGreen];    
+                             andProgressBarColor:ADVProgressBarPurple3];
     [greenprogressBar setProgress:0.5];
     
     [self.view addSubview:greenprogressBar];
@@ -92,7 +92,7 @@
     
     ADVPercentProgressBar *brownProgressPar =
     [[ADVPercentProgressBar alloc] initWithFrame:CGRectMake(10, 185, 292, 28)
-                             andProgressBarColor:ADVProgressBarBrown];    
+                             andProgressBarColor:ADVProgressBarBlue2];
     [brownProgressPar setProgress:0.5];
     
     [self.view addSubview:brownProgressPar];

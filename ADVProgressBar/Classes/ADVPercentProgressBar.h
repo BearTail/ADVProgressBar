@@ -88,10 +88,22 @@
 /// Set of **progressImageView** horizontal bar colors.
 typedef enum
 {
-    ADVProgressBarGreen,
-    ADVProgressBarRed,
-    ADVProgressBarBrown,
-    ADVProgressBarBlue
+	ADVProgressBarRed = 0,
+	ADVProgressBarOrange1,
+	ADVProgressBarOrange2,
+	ADVProgressBarYellow1,
+	ADVProgressBarYellow2,
+    ADVProgressBarGreen1,
+	ADVProgressBarGreen2,
+	ADVProgressBarBlue1,
+	ADVProgressBarBlue2,
+	ADVProgressBarBlue3,
+	ADVProgressBarBlue4,
+	ADVProgressBarBlue5,
+	ADVProgressBarPurple1,
+	ADVProgressBarPurple2,
+	ADVProgressBarPurple3,
+	ADVProgressBarPurple4,
 } ADVProgressBarColor;
 
 // Properties
